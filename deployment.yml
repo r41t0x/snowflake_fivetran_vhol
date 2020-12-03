@@ -28,9 +28,9 @@ jobs:
                     }\""
      - name: run models
        command: dbt run --vars '{"key":"value", "key2":"value2"}' 
-     - name: goofy command
-       command: "dbt 
-                   run-operation fivetran_utils.generate_columns_macro 
-                   --args '{\"table_name\": \"ACCOUNT_DATA\", 
-                            \"schema_name\": \"DBT_TRANSFORMATIONS\", 
-                            \"database_name\": \"dbt-package-testing\"}'"
+#      - name: goofy command
+#        command: "dbt 
+#                    run-operation fivetran_utils.generate_columns_macro 
+#                    --args '{\"table_name\": \"ACCOUNT_DATA\", 
+#                             \"schema_name\": \"DBT_TRANSFORMATIONS\", 
+#                             \"database_name\": \"dbt-package-testing\"}'"
