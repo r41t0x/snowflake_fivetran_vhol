@@ -18,7 +18,7 @@ jobs:
    schedule: 30 7 * * 1-5 # The example will run every weekday at 7:30am.
    steps:
      - name: run models
-       command: dbt run --vars '{"key": "value"}'
+       command: dbt --vars '{"key": "value"}' run
 
 #  - name: every5minutes
 #    schedule: '*/5 * * * *' # The example will run every 5 minutes. Note that the cron string is quoted as otherwise it will be treated as invalid alias node (see https://yaml.org/spec/1.2/spec.html#*%20alias// for details)
