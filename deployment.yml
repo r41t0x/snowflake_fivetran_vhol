@@ -17,6 +17,23 @@ jobs:
  - name: weekdays
    schedule: 30 7 * * 1-5 # The example will run every weekday at 7:30am.
    steps:
+  - name: nightly
+    schedule: 0 0 * * *
+    steps:
+     - name: install dependencies
+       command: "dbt deps --vars \"
+                    {'SNOWFLAKE_PREP_DATABASE': 'PREP', 
+                     'SNOWFLAKE_PROD_DATABASE': 'PROD', 
+                     'SNOWFLAKE_TRANSFORM_WAREHOUSE': 'TRANSFORMING', 
+                     'SNOWFLAKE_SNAPSHOT_DATABASE': 'RAW'
+                    }\""
+     - name: run snapshots
+       command: "dbt snapshot --select tag:nightly --vars \"
+                    {'SNOWFLAKE_PREP_DATABASE': 'PREP', 
+                     'SNOWFLAKE_PROD_DATABASE': 'PROD', 
+                     'SNOWFLAKE_TRANSFORM_WAREHOUSE': 'TRANSFORMING', 
+                     'SNOWFLAKE_SNAPSHOT_DATABASE': 'RAW'
+                    }\""
      - name: run models
        command: dbt run --vars '{"key":"value", "key2":"value2"}' 
      - name: goofy command
