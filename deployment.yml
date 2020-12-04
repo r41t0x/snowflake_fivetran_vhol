@@ -27,7 +27,8 @@ jobs:
 #                      'SNOWFLAKE_SNAPSHOT_DATABASE': 'RAW'
 #                     }\""
      - name: run models
-       command: "FOO=sample BAR=example dbt run --vars \"{'key1':'value', 'key2':'value2'}\""
+       command: "dbt run --vars \"{'key1':'value', 'key2':'value2'}\""
+#        command: "FOO=sample BAR=example dbt run --vars \"{'key1':'value', 'key2':'value2'}\""
 #      - name: goofy command
 #        command: "dbt 
 #                    run-operation fivetran_utils.generate_columns_macro 
