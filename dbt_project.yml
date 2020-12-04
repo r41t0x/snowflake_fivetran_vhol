@@ -39,3 +39,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 vars:
     google_ads_schema: 'GOOGLE_ADS_DEMO'
+    foo: "{{ env_var('FOO') }}"
+    bar: "{{ env_var('BAR') }}"
+    valid_at: '{{ run_started_at.strftime("%Y-%m-%d %H:%M:%S%z") }}'
