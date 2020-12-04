@@ -37,11 +37,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 #       example:
 #           materialized: view
 
-seeds:
-  +enabled: false
-  +database: "{{ env_var('FOO') }}"
-  +schema: preparation
-  +quote_columns: False
+# seeds:
+#   +enabled: false
+#   +database: "{{ env_var('FOO') }}"
+#   +schema: preparation
+#   +quote_columns: False
 
 vars:
     google_ads_schema: 'GOOGLE_ADS_DEMO'
